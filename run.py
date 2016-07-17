@@ -10,9 +10,11 @@ def hello_monkey():
 
     resp = twilio.twiml.Response()
     resp.message("Hello, Mobile Monkey")
+    x = y
     return str(resp)
 
 if __name__ == "__main__":
-	# Bind to PORT if defined, otherwise default to 5000.
+	# Bind to PORT if defined, otherwise default to 5000.  For Heroku deployment
+	# http://stackoverflow.com/questions/17260338/deploying-flask-with-heroku
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
