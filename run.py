@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect
 import twilio.twiml
 import os
+from adventure import *
 
 app = Flask(__name__)
 
@@ -14,23 +15,49 @@ app = Flask(__name__)
 
 # Try adding your own number to this list!
 
-callers = {
-    "+17816402658": "Kevin",
-    "+14158675310": "Boots",
-    "+14158675311": "Virgil",
-}
+# callers = {
+#     "+17816402658": "Kevin",
+#     "+14158675310": "Boots",
+#     "+14158675311": "Virgil",
+# }
+
+# @app.route("/", methods=['GET', 'POST'])
+# def hello_monkey():
+#     """Respond and greet the caller by name."""
+#     print 'hi'
+#     from_number = request.values.get('From', None)
+#     print request.values
+#     if from_number in callers:
+#         message = callers[from_number] + ", thanks for the message!"
+#     else:
+#         message = "Monkey, thanks for the message!"
+
+#     resp = twilio.twiml.Response()
+#     resp.message(message)
+
+#     return str(resp)
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
     """Respond and greet the caller by name."""
-    print 'hi'
-    from_number = request.values.get('From', None)
-    print request.values
-    if from_number in callers:
-        message = callers[from_number] + ", thanks for the message!"
-    else:
-        message = "Monkey, thanks for the message!"
 
+    from_number = request.values.get('From', None)
+    body = request.values.get('Body', None)
+    print body
+
+    if body == 'start over':
+        message = classroom0()
+    elif body == 'take a nap':
+        message = take_nap()
+    elif body == 'take notes':
+        message = take_notes()
+    elif body == 'turn around':
+        message = turn_around()
+    elif body == 'notes':
+        message = notes()
+    else:
+        message = rogue()
+ 
     resp = twilio.twiml.Response()
     resp.message(message)
 
