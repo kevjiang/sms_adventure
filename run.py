@@ -43,9 +43,10 @@ def hello_monkey():
 
     from_number = request.values.get('From', None)
     body = request.values.get('Body', None)
+    body = body.lower()
     print body
 
-    if body == 'start over':
+    if body == 'start':
         message = classroom0()
     elif body == 'take a nap':
         message = take_nap()
