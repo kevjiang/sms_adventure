@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect
 import twilio.twiml
 import os
-from adventure import *
+from handler import *
 
 app = Flask(__name__)
 
