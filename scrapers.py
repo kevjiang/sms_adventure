@@ -33,8 +33,11 @@ def nyt_headline_count(needle):
 
 	return needle_count
 
-def nyt_all_text_count(needle):
-	html = urllib2.urlopen('http://www.nytimes.com').read()
+def all_text_count(needle, url):
+	'''
+	returns count of needle in visible text of url
+	'''
+	html = urllib2.urlopen(url).read()
 	soup = BeautifulSoup(html)
 	texts = soup.findAll(text=True)
 
