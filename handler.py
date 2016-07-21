@@ -16,7 +16,12 @@ def response_handler(body):
         needle = body.split()[1]
         url = 'http://www.nytimes.com'
         total_nyt_count = all_text_count(needle, url)
-        message = "%s: nytimes.com homepage currently includes %d mentions of %s" % (strftime("%Y-%m-%d %I:%M:%S"), total_nyt_count, needle)
+        message = "%s: %s homepage currently includes %d mentions of %s" % (strftime("%Y-%m-%d %I:%M:%S"), url, total_nyt_count, needle)
+    elif "espn" in body.split():
+        needle = body.split()[1]
+        url = 'http://www.espn.com'
+        total_nyt_count = all_text_count(needle, url)
+        message = "%s: %s homepage currently includes %d mentions of %s" % (strftime("%Y-%m-%d %I:%M:%S"), url, total_nyt_count, needle)
     elif 'start' == body:
         message = classroom0()
     elif 'take a nap' == body:
