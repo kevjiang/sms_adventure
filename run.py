@@ -46,18 +46,8 @@ def hello_monkey():
     body = body.lower().strip()
     print body
 
-    if body == 'start':
-        message = classroom0()
-    elif body == 'take a nap':
-        message = take_nap()
-    elif body == 'take notes':
-        message = take_notes()
-    elif body == 'turn around':
-        message = turn_around()
-    elif body == 'notes':
-        message = notes()
-    else:
-        message = rogue()
+    message = reponse_handler(body)
+    
  
     resp = twilio.twiml.Response()
     resp.message(message)
