@@ -46,7 +46,6 @@ def hello_monkey():
     body = body.lower().strip()
 
     message = response_handler(body)
-    
  
     resp = twilio.twiml.Response()
     resp.message(message)
