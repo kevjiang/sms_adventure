@@ -10,7 +10,7 @@ client = TwilioRestClient(account_sid, auth_token)
 
 needle = "Trump"
 url = 'http://www.nytimes.com'
-total_nyt_count = nyt_all_text_count(needle, url)
+total_nyt_count = all_text_count(needle, url)
 
 body_text = "%s: nytimes.com homepage currently includes %d mentions of %s" % (strftime("%Y-%m-%d %I:%M:%S"), total_nyt_count, needle)
 
