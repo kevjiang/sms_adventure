@@ -1,6 +1,6 @@
 # Download the twilio-python library from http://twilio.com/docs/libraries
 from twilio.rest import TwilioRestClient
-from nyt_scraper import *
+from scrapers import *
 from time import *
 
 # Find these values at https://twilio.com/user/account
