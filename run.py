@@ -44,7 +44,6 @@ def hello_monkey():
     from_number = request.values.get('From', None)
     body = request.values.get('Body', None)
     body = body.lower().strip()
-    print body
 
     message = response_handler(body)
     

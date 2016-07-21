@@ -1,23 +1,19 @@
-from difflib import *
-
 def response_handler(body):
     '''
     given text body string input
-    Performs fuzzy matching using difflib
-    http://stackoverflow.com/questions/16090060/is-there-a-standard-way-in-python-to-fuzzy-match-a-string-with-arbitrary-list-of
     returns proper response message
     '''
     message = ""
 
-    if get_close_matches('start', [body]):
+    if 'start' == body:
         message = classroom0()
-    elif get_close_matches('take a nap', [body]):
+    elif 'take a nap' == body:
         message = take_nap()
-    elif get_close_matches('take notes' ,[body]):
+    elif 'take notes' == body:
         message = take_notes()
-    elif get_close_matches('turn around', [body]):
+    elif 'turn around' == body:
         message = turn_around()
-    elif get_close_matches('notes', [body]):
+    elif 'notes' == body:
         message = notes()
     else:
         message = rogue()
